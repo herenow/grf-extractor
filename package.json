@@ -1,0 +1,30 @@
+{
+  "name": "grf-extractor",
+  "version": "0.0.1",
+  "description": "A command line GRF extractor, used to manage Ragnarok's .grf files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/herenow/grf-extractor"
+  },
+  "keywords": [
+    "ragnarok",
+    "grf",
+    "robrowser",
+    "extractor"
+  ],
+  "author": "herenow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/herenow/grf-extractor/issues"
+  },
+  "homepage": "https://github.com/herenow/grf-extractor",
+  "dependencies": {
+    "mkdirp": "^0.5.0",
+    "optimist": "^0.6.1",
+    "requirejs": "^2.1.15"
+  }
+}
