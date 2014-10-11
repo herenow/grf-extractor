@@ -1,6 +1,6 @@
 {
   "name": "grf-extractor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A command line GRF extractor, used to manage Ragnarok's .grf files.",
   "main": "index.js",
   "scripts": {
