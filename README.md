@@ -1,3 +1,6 @@
+Grf-extractor
+=========
+
 This is a command line tool for extracting and handling .grf packages.
 
 GRF files are a set of packed and compressed files, normally found on Ragnarok's game files.
