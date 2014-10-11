@@ -6,7 +6,7 @@ if(cluster.isMaster) {
 	agent.start()
 }
 else {
-	var id = cluster.worker.id + 1
+	var id = cluster.worker.id
 	agent.start({
 		port: 9999 + id,
 		ipc_port: 3333 + id,
