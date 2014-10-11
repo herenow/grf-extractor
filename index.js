@@ -158,8 +158,3 @@ extraction.on('error', function(err) {
 	console.error("Extraction error", err)
 })
 
-// Profiler
-if(require('cluster').isMaster) {
-	var agent = require('webkit-devtools-agent');
-	agent.start()
-}
