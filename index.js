@@ -62,7 +62,7 @@ var grf = new Grf({
 })
 
 // Set debugging mode
-if(typeof arg.d !== 'undefined') {
+if(typeof arg.v !== 'undefined') {
 	grf.printDebug = true
 }
 
@@ -109,14 +109,16 @@ if(typeof arg.l !== 'undefined') {
 if(typeof arg.e === 'string') {
 	var filename = arg.e
 
-	// We need to replace our normal slashes for windows double forward slash
-	// Since the .grf filenames are written as so. Example: data\\clientinfo.xl
+	// We need to replace our normal slashes for windows forward slash
 	filename = filename.replace( /\//g, '\\')
 
-	var exists = grf.getFile(filename, process.stdout.write)
+	var exists = grf.getFile(filename, function(data){
+		var buf = new Buffer( new Uint8Array(data))
+		process.stdout.write(buf)
+	})
 
 	if(exists === false) {
-		console.error("File not in the .grf, don't forget to put the data/ folder in front.'")
+		console.error("File '%s' not in the .grf, don't forget to put the data/ folder in front.", filename)
 		console.error("Example: -e data/clientinfo.xml")
 	}
 
@@ -137,10 +139,14 @@ extraction.on('start', function() {
 		width: 100,
 		total: grf.entries.length
 	})
+	var last = 0
 	var timer = setInterval(function () {
 		var progress = extraction.progress()
+		var rate = progress - last
+
+		last = progress
 		
-		bar.tick(progress)
+		bar.tick(rate)
 
 		if (bar.complete) {
 			clearInterval(timer);
