@@ -143,13 +143,14 @@ extraction.on('start', function() {
 	var timer = setInterval(function () {
 		var progress = extraction.progress()
 		var rate = progress - last
-
+		
 		last = progress
 		
 		bar.tick(rate)
 
 		if (bar.complete) {
-			clearInterval(timer);
+			console.log("Finished extracting GRF.")
+			process.nextTick(process.exit)
 		}
 	}, 100)
 })
