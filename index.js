@@ -4,6 +4,7 @@
 
 // Dependencies
 var argv = require('optimist')
+var _package = require('./package.json')
 var Grf  = require('./lib/grf.js')
 var ProgressBar = require('progress')
 var Fs = require('fs')
@@ -38,6 +39,9 @@ argv.options('v', {
 	alias: 'verbose',
 	describe: 'Enable verbose output, will print debug messages.',
 })
+argv.options('version', {
+	describe: 'Print package version.',
+})
 argv.options('h', {
 	alias: 'help',
 	describe: 'Print help and usage information',
@@ -46,6 +50,12 @@ argv.options('h', {
 
 // Parse arguments
 var arg = argv.argv
+
+// Print version
+if(arg.version) {
+	console.log(_package.version)
+	return
+}
 
 // Print help
 if(!arg.g || arg.h) {
