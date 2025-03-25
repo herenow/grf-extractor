@@ -123,7 +123,7 @@ if(typeof arg.e === 'string') {
 	filename = filename.replace( /\//g, '\\')
 
 	var exists = grf.getFile(filename, function(data){
-		var buf = new Buffer( new Uint8Array(data))
+		var buf = Buffer.from(new Uint8Array(data))
 		process.stdout.write(buf)
 	})
 
