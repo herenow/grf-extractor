@@ -4,7 +4,7 @@
   "description": "A command line GRF extractor, used to manage Ragnarok's .grf files.",
   "main": "index.js",
   "bin": {
-	  "grf-extractor": "./index.js"
+    "grf-extractor": "./index.js"
   },
   "scripts": {
     "test": "npm test"
@@ -26,11 +26,10 @@
   },
   "homepage": "https://github.com/herenow/grf-extractor",
   "dependencies": {
-    "mkdirp": "^0.5.0",
     "optimist": "^0.6.1",
-    "progress": "^1.1.8"
+    "progress": "^2.0.3"
   },
-  "devDependencies": {
-    "webkit-devtools-agent": "^0.3.1"
+  "engines": {
+    "node": ">=10.12.0"
   }
 }
